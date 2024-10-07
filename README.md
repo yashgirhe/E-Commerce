@@ -66,3 +66,9 @@ making your codebase cleaner and more maintainable.
 1. Dependencies - spring-cloud-starter-openfeign
 2. Add _@EnableFeignClients_ annotation in the main class of service which will be making call to another service.
 3. Create an interface to make API calls to another service and annotate it with _@FeignClient_
+
+## API Gateway Filters
+API Gateway filters are used to intercept, modify, and enhance requests and responses that pass through an API Gateway. They allow you to apply common cross-cutting concerns
+(such as authentication, logging, rate limiting, and transformation) at a centralized entry point before routing requests to microservices. There are two types of filters:
+1. Global Filters - applicable for all the request and response.
+2. Route specific Filters(LoggingOrdersFilter in this project) - If we want to perform cross cutting concerns only for specific routes. Example - If we want to do logging when request is being made to specific service.
