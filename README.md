@@ -72,3 +72,7 @@ API Gateway filters are used to intercept, modify, and enhance requests and resp
 (such as authentication, logging, rate limiting, and transformation) at a centralized entry point before routing requests to microservices. There are two types of filters:
 1. Global Filters - applicable for all the request and response.
 2. Route specific Filters(LoggingOrdersFilter in this project) - If we want to perform cross cutting concerns only for specific routes. Example - If we want to do logging when request is being made to specific service.
+
+![img18](https://github.com/user-attachments/assets/c2245a2c-6904-484c-86ad-26a54de422fc)
+![img19](https://github.com/user-attachments/assets/0660b2cd-ba70-4b21-83d0-45f8f54708a7)
+
