@@ -11,9 +11,3 @@ spring:
           default-label: main
 server:
   port: 8888
-
-#eureka config
-eureka:
-  client:
-  service-url:
-    defaultZone: http://localhost:8761/eureka
