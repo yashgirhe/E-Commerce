@@ -6,8 +6,8 @@ spring:
       server:
         git:
           uri: https://github.com/yashgirhe/E-Commerce-config-server
-          username: yashgirhe
-          password: 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
+#          username: yashgirhe
+#          password:
           default-label: main
 server:
   port: 8888
