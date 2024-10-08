@@ -76,3 +76,16 @@ API Gateway filters are used to intercept, modify, and enhance requests and resp
 ![img18](https://github.com/user-attachments/assets/c2245a2c-6904-484c-86ad-26a54de422fc)
 ![img19](https://github.com/user-attachments/assets/0660b2cd-ba70-4b21-83d0-45f8f54708a7)
 
+## Config Server
+Config Server is a dedicated service that acts as a centralized repository, allowing all microservices to retrieve their configurations dynamically at runtime. Config Server can manage different
+environments (e.g., dev, test, prod) and profiles. This means that each environment can have its own set of properties (e.g., different databases or API keys)
+
+### Implementation of config server
+Config service is a whole difference microservice so we need to create different spring boot project.
+1. Create a github repository and add all the required properties and yml files for all the services with proper naming convention.
+2. Dependencies - spring-cloud-starter-config
+3. Inside properties of all the services add path of config service to import the configuration. Example - config.import=configserver:http://localhost:8888
+4. Add _@EnableConfigServer_ annotation in the main class.
+5. Configure the properties file of config service to import the configuration from remote server.
+
+![1_J7SMr1pE98CmMi8Yb2limg](https://github.com/user-attachments/assets/f8a448dd-253e-4881-bf0d-4c43bc8aa72b)
