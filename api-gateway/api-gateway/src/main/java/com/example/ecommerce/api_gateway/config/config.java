@@ -1,19 +1,13 @@
-package com.example.ecommerce.order_service.config;
+package com.example.ecommerce.api_gateway.config;
 
 import feign.Capability;
 import feign.micrometer.MicrometerCapability;
 import io.micrometer.core.instrument.MeterRegistry;
-import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class Config {
-
-    @Bean
-    public ModelMapper modelMapper(){
-        return new ModelMapper();
-    }
+public class config {
 
     @Bean
     public Capability capability(final MeterRegistry registry){
