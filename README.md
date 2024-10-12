@@ -84,8 +84,34 @@ environments (e.g., dev, test, prod) and profiles. This means that each environm
 Config service is a whole difference microservice so we need to create different spring boot project.
 1. Create a github repository and add all the required properties and yml files for all the services with proper naming convention.
 2. Dependencies - spring-cloud-starter-config
-3. Inside properties of all the services add path of config service to import the configuration. Example - config.import=configserver:http://localhost:8888
+3. Inside properties of all the services add path of config service to import the configuration. Example - `config.import=configserver:http://localhost:8888`
 4. Add _@EnableConfigServer_ annotation in the main class.
 5. Configure the properties file of config service to import the configuration from remote server.
 
 ![1_J7SMr1pE98CmMi8Yb2limg](https://github.com/user-attachments/assets/f8a448dd-253e-4881-bf0d-4c43bc8aa72b)
+
+## Distributed Tracing using Zipkin & Micrometer
+Distributed tracing is a technique that tracks requests as they move through a distributed system, such as a microservices environment or cloud native
+architecture. It helps developers understand how requests are handled across multiple applications, services, and databases.
+
+### Micrometer
+Micrometer is a tool that helps developers keep track of how their microservices are performing. It is a vendor-neutral application metrics façade. Application metrics recorded
+by Micrometer are intended to be used to observe, alert, and react to the current/recent operational state of your environment. It can be used as metrics Façade for 
+Amazon Cloud Watch, Elastic, Prometheus and Zipkin.
+
+### Zipkin
+Zipkin is a tool that helps developers trace requests across different parts of a distributed system. Think of it as a way to see the path a request takes as it
+moves between different microservices. This can be really useful for understanding how long it takes for requests to be processed, where bottlenecks
+are, and what might be causing problems.
+[Installation guide](https://www.appsdeveloperblog.com/micrometer-and-zipkin-in-spring-boot/)
+
+### Implementation of zipkin and micrometer
+1. Download zipking .jar file from [Link](https://zipkin.io/pages/quickstart.html) and run it from command line - `java -jar zipkin-server-3.4.2-exec.jar`
+2. Dependencies - micrometer and zipkin dependencies, micrometer with open feign dependency(if using open feign client)
+3. Configure properties file-
+`management.tracing.sampling.probability: 1.0`
+`spring.zipkin.baseUrl: http://localhost:9411`
+4. Add micrometer capability bean to config
+
+![image](https://github.com/user-attachments/assets/851e3f73-9d3f-4041-8772-c72c1f2aa179)
+![image](https://github.com/user-attachments/assets/25c3d3d2-8795-473d-9274-a1930a843b83)
