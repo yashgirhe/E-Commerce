@@ -115,3 +115,31 @@ are, and what might be causing problems.
 
 ![image](https://github.com/user-attachments/assets/851e3f73-9d3f-4041-8772-c72c1f2aa179)
 ![image](https://github.com/user-attachments/assets/25c3d3d2-8795-473d-9274-a1930a843b83)
+
+## Centralized Logging with the ELK Stack
+ELK is a collection of three open-source applications - Elasticsearch, Logstash, and Kibana from Elastic that accepts data from any source or format, on which
+you can then perform search, analysis, and visualize that data.
+
+### Elasticsearch
+Elasticsearch stores and indexes the data. It is a NoSQL database based on Lucene's open-source search engine. Since Elasticsearch is developed using Java, therefore, it can run on
+different platforms. One particular aspect where it excels is indexing streams of data such as logs.
+
+### Logstash
+Logstash is a tool that integrates with a variety of deployments. It is used to collect, parse, transform, and buffer data from a variety of
+sources. The data collected by Logstash can be shipped to one or more targets like Elasticsearch.
+
+### Kibana
+Kibana acts as an analytics and visualization layer on top of Elasticsearch. Kibana can be used to search, view, and interpret the data stored in Elasticsearch.
+
+![img25](https://github.com/user-attachments/assets/8804398d-4319-46c8-bf72-d21ec49bcfdd)
+
+### Implementation of ELK
+1. Download - [ElasticSearch](https://www.elastic.co/downloads/elasticsearch), [Logstash](https://www.elastic.co/downloads/logstash), [Kibana](https://www.elastic.co/downloads/kibana)
+2. Navigate to elasticsearch directory and run using - `bin/elasticsearch`
+3. Store the username(elastic), password and token
+4. Run kibana using - `bin/kibana`, open the link, add the token, and login
+5. Add [logback.xml](https://github.com/yashgirhe/Starter_Files/blob/main/logback-spring.xml) file in the application/services
+6. Create a [logstash file](https://github.com/yashgirhe/Starter_Files/blob/main/logstash.conf) (.conf) and place it in logstash folder and run logstash using - `bin/logstash -f logstash.conf`
+7. Create a new view in kibana and provide index pattern (which is provided in logstash) and you are good to go.
+
+![image](https://github.com/user-attachments/assets/84aa6eb7-10af-4bbf-9df6-7a9724b838a9)
